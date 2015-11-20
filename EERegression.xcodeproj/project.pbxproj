@@ -91,9 +91,9 @@
 		FF1A3EFE1BF9079500BBFFC4 /* OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCV.h; sourceTree = "<group>"; };
 		FF1A3EFF1BF9079500BBFFC4 /* opencv.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = opencv.mm; sourceTree = "<group>"; };
 		FF1A3F011BF9079500BBFFC4 /* operations-and-indexing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "operations-and-indexing.m"; sourceTree = "<group>"; };
-		FF1A3F021BF9079500BBFFC4 /* swix-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "swix-Bridging-Header.h"; sourceTree = "<group>"; };
 		FF1A3F031BF9079500BBFFC4 /* ScalarArithmetic-bleed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ScalarArithmetic-bleed.swift"; sourceTree = "<group>"; };
 		FF1A3F041BF9079500BBFFC4 /* tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tests.swift; sourceTree = "<group>"; };
+		FF667FFF1BFF5B8B0007D401 /* swix-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "swix-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,13 +223,13 @@
 		FF1A3EFA1BF9079500BBFFC4 /* objc */ = {
 			isa = PBXGroup;
 			children = (
+				FF667FFF1BFF5B8B0007D401 /* swix-Bridging-Header.h */,
 				FF1A3EFB1BF9079500BBFFC4 /* conversion.swift */,
 				FF1A3EFC1BF9079500BBFFC4 /* machine_learning.mm */,
 				FF1A3EFD1BF9079500BBFFC4 /* math.m */,
 				FF1A3EFE1BF9079500BBFFC4 /* OpenCV.h */,
 				FF1A3EFF1BF9079500BBFFC4 /* opencv.mm */,
 				FF1A3F011BF9079500BBFFC4 /* operations-and-indexing.m */,
-				FF1A3F021BF9079500BBFFC4 /* swix-Bridging-Header.h */,
 			);
 			path = objc;
 			sourceTree = "<group>";
@@ -501,7 +501,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ekin.EERegression;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/erkekin/Desktop/EERegression/EERegression/swix/swix/objc/swix-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "EERegression/swix/swix/objc/swix-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -521,7 +521,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ekin.EERegression;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/erkekin/Desktop/EERegression/EERegression/swix/swix/objc/swix-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "EERegression/swix/swix/objc/swix-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -568,6 +568,7 @@
 				FF1A3ED81BF8FE4800BBFFC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FF1A3ED91BF8FE4800BBFFC4 /* Build configuration list for PBXNativeTarget "EERegressionTests" */ = {
 			isa = XCConfigurationList;
@@ -576,6 +577,7 @@
 				FF1A3EDB1BF8FE4800BBFFC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
