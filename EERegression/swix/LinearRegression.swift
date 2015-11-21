@@ -64,9 +64,8 @@ class Regression {
         onesVector.flat = ones(newX.rows)
         
         let onedXNew = onesVector.cbind(newX)
-        
-        //let betas = solve(X'X, X'Y')
-        let betas = solve(transpose(onedXNew)*!onedXNew, b: (transpose(onedXNew)*!Y).flat)
+
+        let betas = solve(transpose(onedXNew)*!onedXNew, b: (transpose(onedXNew)*!Y).flat)        //let betas = solve(X'X, X'Y')
         
         return betas
         

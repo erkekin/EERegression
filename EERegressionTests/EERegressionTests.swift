@@ -21,19 +21,28 @@ class EERegressionTests: XCTestCase {
         Y.flat.grid = [126.6, 101.8, 71.6, 101.6, 68.1, 62.9, 45.5, 41.9, 46.3, 34.1, 38.2, 41.7, 24.7, 41.5, 36.6, 19.6, 22.8, 29.6, 23.5, 15.3, 13.4, 26.8, 9.8, 18.8, 25.9, 19.3]
         
         let regression = Regression(X: X, Y: Y, degree: degree)
-//        print( regression.betalar!.grid)
+
         return regression.betalar!.grid
         
     }
+ 
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
     
-    func quadratic(){
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+    
+    func testQuadratic() {
+
+        XCTAssertEqual(  String(format:"%.2f", regression(2)[0]), "110.11")
+        XCTAssertEqual(  String(format:"%.2f", regression(2)[1]), "-7.42")
+        XCTAssertEqual(  String(format:"%.2f", regression(2)[2]), "0.15")
         
-        //        let actualResult = regression(2)[0]
-        //        let expectedResult =  [110.107493783826, -7.42253330944076, 0.150613025308773][0]
-        //
-        //        print(actualResult)
-        
-        //  XCTAssertEqual(regression(2), [110.107493783826, -7.42253330944076, 0.150613025308773])  //        Call:
+        //        Call:
         //        lm(formula = Counts ~ Time + Time2)
         //        Residuals:
         //        Min       1Q   Median       3Q     Max
@@ -52,13 +61,12 @@ class EERegressionTests: XCTestCase {
         //        F-statistic: 105.1 on 2 and 23 DF, p-value: 2.701e-12
         
     }
-    func linear(){
+    
+    func testLinear() {
         
-        //      XCTAssertEqual(Double(round(1000*regression(1)[0])/1000),  Double(round(1000*87.1550272539776)/1000))
+        XCTAssertEqual(  String(format:"%.2f", regression(1)[0]), "87.16")
+        XCTAssertEqual(  String(format:"%.2f", regression(1)[1]), "-2.82")
         
-        
-        
-        // XCTAssert(ar.betalar!.grid.count > 0, "quadratic betaları hatalı çıktı.")
         //        Call:
         //        lm(formula = Counts ~ Time)
         //
@@ -77,37 +85,14 @@ class EERegressionTests: XCTestCase {
         //        Multiple R-squared:  0.7512,	Adjusted R-squared:  0.7408
         //        F-statistic: 72.47 on 1 and 24 DF,  p-value: 1.033e-08
         
+
     }
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testQuadratic() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        quadratic()
-        
-        
-    }
-    func testLinear() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        linear()
-        
-        
-    }
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock {
             // Put the code you want to measure the time of here.
-         
+            
         }
     }
     
