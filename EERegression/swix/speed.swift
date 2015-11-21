@@ -10,6 +10,7 @@ import Foundation
 
 // should be run while optimized!
 class SpeedTests {
+    
     init(){
         time("Project Euler 1", fa: pe1)
         time("Project Euler 10", fa: pe10)

@@ -21,12 +21,12 @@ func norm(x:matrix, ord:Double=2)->Double{
     else if ord == -1   {return min(sum(abs(x), axis:0))}
     else if ord ==  2 {
         // compute only the largest singular value?
-        var (u, s, v) = svd(x, compute_uv:false)
+        let (u, s, v) = svd(x, compute_uv:false)
         return s[0]
     }
     else if ord == -2 {
         // compute only the smallest singular value?
-        var (u, s, v) = svd(x, compute_uv:false)
+        let (u, s, v) = svd(x, compute_uv:false)
         return s[-1]
     }
     
@@ -78,10 +78,10 @@ func kron(A:matrix, B:matrix)->matrix{
         var row = (m+0)*(p+0) + p-0
         row = m_max*m + 1*p
         
-        var i = arange(B.shape.1 * A.shape.1)
-        var n1 = arange(A.shape.1)
-        var q1 = arange(B.shape.1)
-        var (n, q) = meshgrid(n1, y: q1)
+        let i = arange(B.shape.1 * A.shape.1)
+        let n1 = arange(A.shape.1)
+        let q1 = arange(B.shape.1)
+        let (n, q) = meshgrid(n1, y: q1)
         C[row, i] = A[m, n.flat] * B[p, q.flat]
     }
     var C = zeros((A.shape.0*B.shape.0, A.shape.1*B.shape.1))
@@ -95,19 +95,19 @@ func kron(A:matrix, B:matrix)->matrix{
 }
 
 func tril(x: matrix) -> ndarray{
-    var (m, n) = x.shape
-    var (mm, nn) = meshgrid(arange(m), y: arange(n))
+    let (m, n) = x.shape
+    let (mm, nn) = meshgrid(arange(m), y: arange(n))
     var i = mm - nn
-    var j = (i < 0+S2_THRESHOLD)
+    let j = (i < 0+S2_THRESHOLD)
     i[argwhere(j)] <- 0
     i[argwhere(1-j)] <- 1
     return argwhere(i)
 }
 func triu(x: matrix)->ndarray{
-    var (m, n) = x.shape
-    var (mm, nn) = meshgrid(arange(m), y: arange(n))
+    let (m, n) = x.shape
+    let (mm, nn) = meshgrid(arange(m), y: arange(n))
     var i = mm - nn
-    var j = (i > 0-S2_THRESHOLD)
+    let j = (i > 0-S2_THRESHOLD)
     i[argwhere(j)] <- 0
     i[argwhere(1-j)] <- 1
     return argwhere(i)
@@ -115,8 +115,8 @@ func triu(x: matrix)->ndarray{
 
 // PRINTING
 func println(x: matrix, prefix:String="matrix([", postfix:String="])", newline:String="\n", format:String="%.3f", printWholeMatrix:Bool=false){
-    print(prefix, terminator: "")
-    var suffix = ", "
+    print(prefix, terminator: "\n")
+//    let suffix = ", "
     var pre:String
     var post:String
     var printedSpacer = false

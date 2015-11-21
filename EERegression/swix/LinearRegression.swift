@@ -7,6 +7,24 @@
 //
 import UIKit
 
+extension matrix{
+    
+      private func addOnes() -> matrix{
+        let ones = [Double](count: self.rows, repeatedValue: 1.0)
+        
+        let onedXGrid = ones + self.flat.grid
+        
+        var onedX =  matrix(columns: self.rows*(self.columns + 1), rows: 1)
+        onedX.flat.grid = onedXGrid
+        
+        onedX.columns = self.rows
+        onedX.rows = self.columns + 1
+        onedX.shape = (onedX.rows, onedX.columns)
+        onedX = transpose(onedX)
+        return onedX
+        
+    }
+}
 class LinearRegression {
     
     var betalar:ndarray?
@@ -28,41 +46,27 @@ class LinearRegression {
         //      |1  x41 x42 x4n|      |y4|
         //      |1  xm1 xm2 xmn|      |ym|
         
-        let ones = [Double](count: X.rows, repeatedValue: 1.0)
+        print(X)
         
-        let onedXNew = addOnes(X, vector: ones)
         
-             //let betas = solve(X'X, X'Y')
+        let onedXNew = X.addOnes()
+        print(onedXNew)
+        //let betas = solve(X'X, X'Y')
         let betas = solve(transpose(onedXNew)*!onedXNew, b: (transpose(onedXNew)*!Y).flat)
         
         return betas
         
     }
     
-    func addOnes(X:matrix, vector:[Double]) -> matrix{
-        
-        let onedXGrid = vector + X.flat.grid
-        
-        var onedX =  matrix(columns: X.rows*(X.columns + 1), rows: 1)
-        onedX.flat.grid = onedXGrid
-        
-        onedX.columns = X.rows
-        onedX.rows = X.columns + 1
-        onedX.shape = (onedX.rows, onedX.columns)
-        onedX = transpose(onedX)
-        return onedX
-        
-    }
-    
-    func test(X:matrix) -> matrix{
-        
-        //let y:[Double] = [73,50,128,170,87,108,135,69,148,132]
-        //var Y = matrix(columns: 1, rows: y.count)
-        //Y.flat.grid = y
-        
-        return  X *! X
-        
-    }
+//    func test(X:matrix) -> matrix{
+//        
+//        //let y:[Double] = [73,50,128,170,87,108,135,69,148,132]
+//        //var Y = matrix(columns: 1, rows: y.count)
+//        //Y.flat.grid = y
+//        
+//        return  X *! X
+//        
+//    }
 }
 
 

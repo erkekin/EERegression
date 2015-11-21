@@ -8,6 +8,7 @@
 
 import Foundation
 import Accelerate
+
 struct matrix {
     let n: Int
     var rows: Int

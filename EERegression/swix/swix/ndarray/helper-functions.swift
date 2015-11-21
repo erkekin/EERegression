@@ -104,7 +104,20 @@ func concat(x:ndarray, y:ndarray)->ndarray{
     z[x.n..<y.n+x.n] = y
     return z
 }
-
+func bind(x:ndarray, y:ndarray)->ndarray{
+    // concatenate two matrices
+    
+    var z = zeros(x.n + y.n)
+    
+    for i in 0..<min( x.count, y.count){
+        let j = i*2
+        z[j] = x[i]
+        z[j+1] = y[i]
+        
+    }
+    
+    return z
+}
 // ARG
 func argmax(x:ndarray)->Int{
     // find the location of the max
