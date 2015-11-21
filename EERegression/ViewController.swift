@@ -26,15 +26,7 @@ class ViewController: UIViewController {
         var X1 = matrix(columns: 1, rows: 26)
         X1.flat.grid = [0, 1, 2, 4, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 22, 24, 25, 26, 27, 28, 29, 30]
         
-        var X2 = matrix(columns: 1, rows: 26)
-        X2.flat.grid = X1.flat.grid.map({$0*$0})
-        
-        var X = matrix(columns: Y.rows, rows: 2)
-        X.flat = concat(X1.flat, y: X2.flat)
-        
-        X = X1.cbind(X2)
-        
-        let ar = LinearRegression(X: X, Y: Y)
+        let ar = Regression(X: X1, Y: Y, degree: 3)
         return ar.betalar!.grid
         
         //        Call:
@@ -64,7 +56,7 @@ class ViewController: UIViewController {
         var X = matrix(columns: 1, rows: 26)
         X.flat.grid = [0, 1, 2, 4, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 22, 24, 25, 26, 27, 28, 29, 30]
         
-        let ar = LinearRegression(X: X, Y: Y)
+        let ar = Regression(X: X, Y: Y, degree: 1)
         
         print(ar.betalar!.grid)
         

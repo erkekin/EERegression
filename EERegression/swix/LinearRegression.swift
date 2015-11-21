@@ -12,23 +12,27 @@ extension matrix{
     func cbind(Y:matrix) -> matrix{
         
         var A = matrix(columns: Y.rows, rows: self.columns + Y.columns)
-        A.flat = concat(self.flat, y: transpose(Y).flat)
+        A.flat = concat(transpose(self).flat, y: transpose(Y).flat)
         
         return transpose(A)
         
     }
-
+    
 }
-class LinearRegression {
+
+class Regression {
     
     var betalar:ndarray?
+    var degree:Int = 1
     
-    init(X:matrix, Y:matrix){
+    init(X:matrix, Y:matrix, degree:Int){
         
-        betalar = self.findBetas(X, Y: Y)
+        self.degree = degree
+        betalar = self.findBetas(X, Y: Y, degree: degree)
+        
     }
     
-    private func findBetas(X:matrix, Y:matrix) -> ndarray {
+    private func findBetas(X:matrix, Y:matrix, degree:Int) -> ndarray {
         
         assert(X.rows == Y.rows, "Sizes of input arguments do not match")
         assert(Y.columns == 1, "Columns of Y should be 1")
@@ -39,12 +43,27 @@ class LinearRegression {
         //      |1  x31 x32 x3n|      |y3|
         //      |1  x41 x42 x4n|      |y4|
         //      |1  xm1 xm2 xmn|      |ym|
- 
-        var onesVector = matrix(columns: 1, rows: Y.rows)
-        onesVector.flat = ones(X.rows)
         
-        let onedXNew = onesVector.cbind(X)
-     
+        var newX = X
+        
+        if degree > 1{
+            
+            for i in 2...degree{
+                
+                var degreeOfX = matrix(columns: 1, rows: X.rows)
+                degreeOfX.flat.grid = X.flat.grid.map({pow($0, Double(i))})
+                
+                newX = newX.cbind(degreeOfX)
+                
+            }
+            
+        }
+        
+        var onesVector = matrix(columns: 1, rows: Y.rows)
+        onesVector.flat = ones(newX.rows)
+        
+        let onedXNew = onesVector.cbind(newX)
+        
         //let betas = solve(X'X, X'Y')
         let betas = solve(transpose(onedXNew)*!onedXNew, b: (transpose(onedXNew)*!Y).flat)
         
@@ -59,7 +78,7 @@ class LinearRegression {
     //        //Y.flat.grid = y
     //
     //        return  X *! X
-    //        
+    //
     //    }
 }
 
