@@ -84,6 +84,29 @@ func shuffle(x:ndarray)->ndarray{
     return y
 }
 
+func cbind(x:matrix, y:matrix)->matrix{
+    // concatenate two matrices
+    assert(x.rows == y.rows, "to make a column bind, rows count should be equal.")
+    let totalColumnCount = x.columns + y.columns
+    let totalRowCount = x.rows
+    var z = matrix(columns: totalColumnCount, rows: totalRowCount)
+    for row in 0..<z.rows{
+        
+        for column in 0..<z.columns{
+            z[row, column] = 9
+        }
+        
+    }
+    //    for i in 0..<min( x.count, y.count){
+    //        let j = i*2
+    //        z[j] = x[i]
+    //        z[j+1] = y[i]
+    //
+    //    }
+    
+    return z
+}
+
 // SETS
 func intersection(x: ndarray, y:ndarray)->ndarray{
     return x[argwhere(in1d(x, y: y))]

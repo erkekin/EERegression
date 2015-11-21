@@ -9,21 +9,15 @@ import UIKit
 
 extension matrix{
     
-      private func addOnes() -> matrix{
-        let ones = [Double](count: self.rows, repeatedValue: 1.0)
+    func cbind(Y:matrix) -> matrix{
         
-        let onedXGrid = ones + self.flat.grid
+        var A = matrix(columns: Y.rows, rows: self.columns + Y.columns)
+        A.flat = concat(self.flat, y: transpose(Y).flat)
         
-        var onedX =  matrix(columns: self.rows*(self.columns + 1), rows: 1)
-        onedX.flat.grid = onedXGrid
-        
-        onedX.columns = self.rows
-        onedX.rows = self.columns + 1
-        onedX.shape = (onedX.rows, onedX.columns)
-        onedX = transpose(onedX)
-        return onedX
+        return transpose(A)
         
     }
+
 }
 class LinearRegression {
     
@@ -45,12 +39,12 @@ class LinearRegression {
         //      |1  x31 x32 x3n|      |y3|
         //      |1  x41 x42 x4n|      |y4|
         //      |1  xm1 xm2 xmn|      |ym|
+ 
+        var onesVector = matrix(columns: 1, rows: Y.rows)
+        onesVector.flat = ones(X.rows)
         
-        print(X)
-        
-        
-        let onedXNew = X.addOnes()
-        print(onedXNew)
+        let onedXNew = onesVector.cbind(X)
+     
         //let betas = solve(X'X, X'Y')
         let betas = solve(transpose(onedXNew)*!onedXNew, b: (transpose(onedXNew)*!Y).flat)
         
@@ -58,15 +52,15 @@ class LinearRegression {
         
     }
     
-//    func test(X:matrix) -> matrix{
-//        
-//        //let y:[Double] = [73,50,128,170,87,108,135,69,148,132]
-//        //var Y = matrix(columns: 1, rows: y.count)
-//        //Y.flat.grid = y
-//        
-//        return  X *! X
-//        
-//    }
+    //    func test(X:matrix) -> matrix{
+    //
+    //        //let y:[Double] = [73,50,128,170,87,108,135,69,148,132]
+    //        //var Y = matrix(columns: 1, rows: y.count)
+    //        //Y.flat.grid = y
+    //
+    //        return  X *! X
+    //        
+    //    }
 }
 
 

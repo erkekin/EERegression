@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        quadratic()
+        print(quadratic())
         
         // time("yeni", fa: quadratic)
     }
@@ -27,15 +27,12 @@ class ViewController: UIViewController {
         X1.flat.grid = [0, 1, 2, 4, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 22, 24, 25, 26, 27, 28, 29, 30]
         
         var X2 = matrix(columns: 1, rows: 26)
-        X2.flat.grid = [0, 1, 4, 16, 36, 64, 81, 100, 121, 144, 169, 196, 225, 256, 324, 361, 400, 441, 484, 576, 625, 676, 729, 784, 841, 900]
+        X2.flat.grid = X1.flat.grid.map({$0*$0})
         
-        
-        
-        
-        var X = matrix(columns: 2, rows: Y.count)
+        var X = matrix(columns: Y.rows, rows: 2)
         X.flat = concat(X1.flat, y: X2.flat)
         
-        //  let a = bind(X1.flat, y: X2.flat)
+        X = X1.cbind(X2)
         
         let ar = LinearRegression(X: X, Y: Y)
         return ar.betalar!.grid

@@ -72,6 +72,7 @@ func transpose (x: matrix) -> matrix{
     vDSP_mtransD(!x, 1.stride, !y, 1.stride, m.length, n.length)
     return y
 }
+
 func kron(A:matrix, B:matrix)->matrix{
     // an O(n^4) operation!
     func assign_kron_row(A:matrix, B:matrix,inout C:matrix, p:Int, m:Int, m_max:Int){
