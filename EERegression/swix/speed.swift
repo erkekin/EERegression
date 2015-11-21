@@ -11,17 +11,17 @@ import Foundation
 // should be run while optimized!
 class SpeedTests {
     init(){
-        time(pe1, name:"Project Euler 1")
-        time(pe10, name:"Project Euler 10")
-        time(pe73, name:"Project Euler 73")
-        time(pi_approx, name:"Pi approximation")
-        time(soft_thresholding, name:"Soft thresholding")
+        time("Project Euler 1", fa: pe1)
+        time("Project Euler 10", fa: pe10)
+        time("Project Euler 73", fa: pe73)
+        time("Pi approximation", fa:pi_approx)
+        time("Soft thresholding", fa:soft_thresholding)
     }
 }
 
-func time(f:()->(), name:String="function"){
+func time(name:String="function",fa:()->()){
     let start = NSDate()
-    f()
+    fa()
     Swift.print(NSString(format:"\(name) time (s): %.4f", -1 * start.timeIntervalSinceNow))
 }
 func pe1(){

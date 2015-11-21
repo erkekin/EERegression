@@ -30,7 +30,18 @@ class LinearRegression {
         
         let ones = [Double](count: X.rows, repeatedValue: 1.0)
         
-        let onedXGrid = ones + X.flat.grid
+        let onedXNew = addOnes(X, vector: ones)
+        
+             //let betas = solve(X'X, X'Y')
+        let betas = solve(transpose(onedXNew)*!onedXNew, b: (transpose(onedXNew)*!Y).flat)
+        
+        return betas
+        
+    }
+    
+    func addOnes(X:matrix, vector:[Double]) -> matrix{
+        
+        let onedXGrid = vector + X.flat.grid
         
         var onedX =  matrix(columns: X.rows*(X.columns + 1), rows: 1)
         onedX.flat.grid = onedXGrid
@@ -39,11 +50,7 @@ class LinearRegression {
         onedX.rows = X.columns + 1
         onedX.shape = (onedX.rows, onedX.columns)
         onedX = transpose(onedX)
-        print(onedX)
-        //let betas = solve(X'X, X'Y')
-        let betas = solve(transpose(onedX)*!onedX, b: (transpose(onedX)*!Y).flat)
-        
-        return betas
+        return onedX
         
     }
     
