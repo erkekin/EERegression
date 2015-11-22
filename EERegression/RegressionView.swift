@@ -8,19 +8,20 @@
 
 import UIKit
 
-struct node {
+class node {
     
     var point:CGPoint!
     var layer:CAShapeLayer!
-    
+    init(point:CGPoint, layer:CAShapeLayer){
+        self.point = point
+        self.layer = layer
+        
+    }
 }
 
 class RegressionView: UIView {
     
-    var points:[CGPoint] = []{didSet{
-        
-        
-        }}
+    var nodes:NSMutableArray = []
     
     var modelLine:CAShapeLayer?
     let gridWidth: CGFloat = 0.5
@@ -49,10 +50,16 @@ class RegressionView: UIView {
     
     func removeAll(){
         
-        self.points = []
-        
+  
         modelLine?.removeFromSuperlayer()
-        for onelayer in layer.sublayers!{onelayer.removeFromSuperlayer()}
+        for onelayer in nodes{
+            
+            let lay = onelayer as! node
+            lay.layer.removeFromSuperlayer()
+            
+        }
+        self.nodes = []
+        
     }
     
     override func drawRect(rect: CGRect) {
@@ -94,10 +101,10 @@ class RegressionView: UIView {
     @IBAction func tapped(sender: UITapGestureRecognizer) {
         
         let tapPositionOneFingerTap = sender.locationInView(self)
+        let nodea = node(point: tapPositionOneFingerTap, layer: setUpRWPath(tapPositionOneFingerTap))
+        nodes.addObject(nodea)
         
-        points.append(tapPositionOneFingerTap)
-        
-        layer.addSublayer(setUpRWPath(tapPositionOneFingerTap))
+        layer.addSublayer(nodea.layer)
         
         let axialPoints = regressionWithPoint()
         
@@ -110,17 +117,17 @@ class RegressionView: UIView {
     
     func regressionWithPoint() -> (x:CGPoint, y:CGPoint){
         
-        var X = matrix(columns: 1, rows: points.count)
-        X.flat.grid = points.map({ (point) -> Double in
-            
-            return Double(point.x)
+        var X = matrix(columns: 1, rows: nodes.count)
+        X.flat.grid = nodes.map({ (nodea) -> Double in
+            let a = nodea as! node
+            return Double(a.point.x)
         })
         
-        var Y = matrix(columns: 1, rows: points.count)
+        var Y = matrix(columns: 1, rows: nodes.count)
         
-        Y.flat.grid = points.map({ (point) -> Double in
-            
-            return Double(point.y)
+        Y.flat.grid = nodes.map({ (nodea) -> Double in
+            let a = nodea as! node
+            return Double(a.point.y)
         })
         
         let reg = Regression(X: X, Y: Y, degree: 1)
