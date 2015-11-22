@@ -39,11 +39,20 @@ class EERegressionTests: XCTestCase {
     
     func testQuadratic() {
         
-        let reg = regression(2)
+        let reg = regression(2) // 2 for two dimensional. IOW polynomial/quadratic regression.
         
         XCTAssertEqual(String(format:"%.2f", reg.betalar.grid[0]), "110.11")
         XCTAssertEqual(String(format:"%.2f", reg.betalar.grid[1]), "-7.42")
         XCTAssertEqual(String(format:"%.2f", reg.betalar.grid[2]), "0.15")
+        
+        var X = matrix(columns: 1, rows: 1)
+        X.flat.grid = [50]
+        
+        // R COMMAND: predict(quadratic.model,list(Time=50, Time2=2500))
+        let prediction = reg.predict(X)
+        
+        // RESPONSE    1 115.5134
+        XCTAssertEqual(String(format:"%.2f", prediction.flat.grid[0]), "115.51")
         
         //        Call:
         //        lm(formula = Counts ~ Time + Time2)
@@ -67,7 +76,7 @@ class EERegressionTests: XCTestCase {
     
     func testLinear() {
         
-        let reg = regression(1)
+        let reg = regression(1) // 1 for one dimensional. IOW linear regression.
         XCTAssertEqual(String(format:"%.2f", reg.betalar.grid[0]), "87.16")
         XCTAssertEqual(String(format:"%.2f", reg.betalar.grid[1]), "-2.82")
         
@@ -77,7 +86,7 @@ class EERegressionTests: XCTestCase {
         // R COMMAND: predict(linear.model, newdata=data.frame(Time=50))
         let prediction = reg.predict(X)
         
-        //    RESPONSE    1 -54.08043
+        // RESPONSE    1 -54.08043
         XCTAssertEqual(String(format:"%.2f", prediction.flat.grid[0]), "-54.08")
         
         //        Call:

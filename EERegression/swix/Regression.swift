@@ -74,32 +74,32 @@ class Regression {
     
     func predict(X:matrix) -> matrix{
         
-        if degree > 1{
-            
-            // f(x) = w0 + w1 * x0^2 + .... + (wn-1) * xn^(n-1)
-            
-        }
         var ß = matrix(columns: 1, rows: betalar.count)
         ß.flat = betalar
         
-        var onesVector = matrix(columns: 1, rows: X.rows)
-        onesVector.flat = ones(X.rows)
+        var newX = X
         
-        let onedXNew = onesVector.cbind(X)
+        if degree > 1{
+            for i in 2...degree{
+                
+                var degreeOfX = matrix(columns: 1, rows: X.rows)
+                degreeOfX.flat.grid = X.flat.grid.map({pow($0, Double(i))})
+                
+                newX = newX.cbind(degreeOfX)
+
+            }
+            
+        }
+      
+        var onesVector = matrix(columns: 1, rows: newX.rows)
+        onesVector.flat = ones(newX.rows)
         
+        let onedXNew = onesVector.cbind(newX)
+        print(onedXNew)
         return onedXNew *! ß
         
     }
-    
-    //    func test(X:matrix) -> matrix{
-    //
-    //        //let y:[Double] = [73,50,128,170,87,108,135,69,148,132]
-    //        //var Y = matrix(columns: 1, rows: y.count)
-    //        //Y.flat.grid = y
-    //
-    //        return  X *! X
-    //
-    //    }
+
 }
 
 
