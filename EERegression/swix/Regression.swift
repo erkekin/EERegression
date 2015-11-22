@@ -95,7 +95,7 @@ class Regression {
         onesVector.flat = ones(newX.rows)
         
         let onedXNew = onesVector.cbind(newX)
-        print(onedXNew)
+      
         return onedXNew *! ß
         
     }

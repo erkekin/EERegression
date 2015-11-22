@@ -8,12 +8,23 @@
 
 import UIKit
 
+struct node {
+    
+    var point:CGPoint!
+    var layer:CAShapeLayer!
+    
+}
+
 class RegressionView: UIView {
     
-    var points:[CGPoint] = []
+    var points:[CGPoint] = []{didSet{
+        
+        
+        }}
+    
     var modelLine:CAShapeLayer?
     let gridWidth: CGFloat = 0.5
-    var columns: Int = 50
+    var columns: Int = 25
     
     init(frame: CGRect, columns: Int) {
         // Set size of grid
@@ -22,14 +33,32 @@ class RegressionView: UIView {
         
         // Set view to be transparent
         self.opaque = false;
-        self.backgroundColor = UIColor(white: 0.0, alpha: 0.0);
+        self.backgroundColor = UIColor(red:0.73, green:0.84, blue:0.95, alpha:1);
+    }
+    required init?(coder aDecoder: NSCoder) {
+        
+        super.init(coder: aDecoder)
+        
+        self.opaque = false;
+        self.backgroundColor = UIColor.whiteColor()
+        let tap = UITapGestureRecognizer(target: self, action: "tapped:")
+        self.addGestureRecognizer(tap)
+        let longTap = UILongPressGestureRecognizer(target: self, action: "removeAll")
+        self.addGestureRecognizer(longTap)
     }
     
-
+    func removeAll(){
+        
+        self.points = []
+        
+        modelLine?.removeFromSuperlayer()
+        for onelayer in layer.sublayers!{onelayer.removeFromSuperlayer()}
+    }
+    
     override func drawRect(rect: CGRect) {
         let context: CGContextRef = UIGraphicsGetCurrentContext()!
         CGContextSetLineWidth(context, gridWidth)
-        CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
+        CGContextSetStrokeColorWithColor(context, UIColor(red:0.73, green:0.84, blue:0.95, alpha:1).CGColor)
         
         // Calculate basic dimensions
         let columnWidth: CGFloat = self.frame.size.width / (CGFloat(self.columns) + 1.0)
@@ -60,14 +89,7 @@ class RegressionView: UIView {
             CGContextStrokePath(context);
         }
     }
-    required init?(coder aDecoder: NSCoder) {
-        
-        super.init(coder: aDecoder)
-        
-        let tap = UITapGestureRecognizer(target: self, action: "tapped:")
-        self.addGestureRecognizer(tap)
-        
-    }
+    
     
     @IBAction func tapped(sender: UITapGestureRecognizer) {
         
@@ -81,7 +103,7 @@ class RegressionView: UIView {
         
         modelLine?.removeFromSuperlayer()
         modelLine = lineBetweenPoints(axialPoints.x, p2: axialPoints.y)
-      
+        
         layer.addSublayer(modelLine!)
         
     }
