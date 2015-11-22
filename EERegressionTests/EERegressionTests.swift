@@ -11,6 +11,7 @@ import XCTest
 @testable import EERegression
 
 // values and results based on http://www.theanalysisfactor.com/r-tutorial-4/
+// All calculations here are tested with R for MAC
 
 class EERegressionTests: XCTestCase {
     
@@ -40,9 +41,9 @@ class EERegressionTests: XCTestCase {
         
         let reg = regression(2)
         
-        XCTAssertEqual(  String(format:"%.2f", reg.betalar.grid[0]), "110.11")
-        XCTAssertEqual(  String(format:"%.2f", reg.betalar.grid[1]), "-7.42")
-        XCTAssertEqual(  String(format:"%.2f", reg.betalar.grid[2]), "0.15")
+        XCTAssertEqual(String(format:"%.2f", reg.betalar.grid[0]), "110.11")
+        XCTAssertEqual(String(format:"%.2f", reg.betalar.grid[1]), "-7.42")
+        XCTAssertEqual(String(format:"%.2f", reg.betalar.grid[2]), "0.15")
         
         //        Call:
         //        lm(formula = Counts ~ Time + Time2)
@@ -67,21 +68,17 @@ class EERegressionTests: XCTestCase {
     func testLinear() {
         
         let reg = regression(1)
-        XCTAssertEqual(  String(format:"%.2f", reg.betalar.grid[0]), "87.16")
-        XCTAssertEqual(  String(format:"%.2f", reg.betalar.grid[1]), "-2.82")
+        XCTAssertEqual(String(format:"%.2f", reg.betalar.grid[0]), "87.16")
+        XCTAssertEqual(String(format:"%.2f", reg.betalar.grid[1]), "-2.82")
         
-        var X = matrix(columns: 2, rows: 1)
-        X.flat.grid = [1, 50]
+        var X = matrix(columns: 1, rows: 1)
+        X.flat.grid = [50]
         
+        // R COMMAND: predict(linear.model, newdata=data.frame(Time=50))
         let prediction = reg.predict(X)
         
+        //    RESPONSE    1 -54.08043
         XCTAssertEqual(String(format:"%.2f", prediction.flat.grid[0]), "-54.08")
-        
-    
-        //        predict(linear.model, newdata=data.frame(Time=50), interval = "confidence")
-        //        fit       lwr       upr
-        //        1 -54.08043 -78.31312 -29.84773
-        
         
         //        Call:
         //        lm(formula = Counts ~ Time)

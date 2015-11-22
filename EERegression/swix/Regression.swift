@@ -81,9 +81,13 @@ class Regression {
         }
         var ß = matrix(columns: 1, rows: betalar.count)
         ß.flat = betalar
-        print(ß)
-        print(X)
-        return X *! ß
+        
+        var onesVector = matrix(columns: 1, rows: X.rows)
+        onesVector.flat = ones(X.rows)
+        
+        let onedXNew = onesVector.cbind(X)
+        
+        return onedXNew *! ß
         
     }
     
