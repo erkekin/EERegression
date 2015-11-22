@@ -25,18 +25,21 @@ class RegressionView: UIView {
     @IBAction func tapped(sender: UITapGestureRecognizer) {
         
         let tapPositionOneFingerTap = sender.locationInView(self)
-        //        print("y: \(self.frame.height - tapPositionOneFingerTap.y)")
-        //        print("X: \(tapPositionOneFingerTap.x) - Y: \(tapPositionOneFingerTap.y)")
+        
         points.append(tapPositionOneFingerTap)
         
         layer.addSublayer(setUpRWPath(tapPositionOneFingerTap))
         
-        regressionWithPoint()
+        let axialPoints = regressionWithPoint()
+        
+        modelLine?.removeFromSuperlayer()
+        modelLine = lineBetweenPoints(axialPoints.x, p2: axialPoints.y)
+      
+        layer.addSublayer(modelLine!)
         
     }
     
-    
-    func regressionWithPoint(){
+    func regressionWithPoint() -> (x:CGPoint, y:CGPoint){
         
         var X = matrix(columns: 1, rows: points.count)
         X.flat.grid = points.map({ (point) -> Double in
@@ -52,21 +55,29 @@ class RegressionView: UIView {
         })
         
         let reg = Regression(X: X, Y: Y, degree: 1)
-        lineBetweenPoints(CGPointMake(0.22, 124.79), p2: CGPointMake(100.22, 124.79))
-        print(reg.betalar.grid)
-        //let prediction = reg.predict(X)
         
+        let width = Double(frame.width)
+        var axeStartX = matrix(columns: 1, rows: 1)
+        axeStartX.flat.grid = [0]
+        let axeStartY = reg.predict(axeStartX).flat.grid.first
+        
+        var axeEndX = matrix(columns: 1, rows: 1)
+        axeEndX.flat.grid = [width]
+        let axeEndY = reg.predict(axeEndX).flat.grid.first
+        
+        return (CGPointMake(0, CGFloat(axeStartY!)),CGPointMake(CGFloat(width), CGFloat(axeEndY!)))
     }
     
     func lineBetweenPoints(p1:CGPoint, p2: CGPoint) -> CAShapeLayer{
         
-        let rwColor = UIColor(red: 11/255.0, green: 86/255.0, blue: 14/255.0, alpha: 1.0)
+        let rwColor = UIColor.blueColor()
         let rwPath = UIBezierPath()
         let rwLayer = CAShapeLayer()
         rwPath.moveToPoint(p1)
         rwPath.addLineToPoint(p2)
         rwPath.closePath()
         rwLayer.path = rwPath.CGPath
+        rwLayer.lineWidth = 1.0
         rwLayer.fillColor = rwColor.CGColor
         rwLayer.strokeColor = rwColor.CGColor
         
