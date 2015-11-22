@@ -86,7 +86,7 @@ class Regression {
                 degreeOfX.flat.grid = X.flat.grid.map({pow($0, Double(i))})
                 
                 newX = newX.cbind(degreeOfX)
-
+ 
             }
             
         }

@@ -7,11 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FF1A3EBD1BF8FE4800BBFFC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EBC1BF8FE4800BBFFC4 /* AppDelegate.swift */; };
-		FF1A3EBF1BF8FE4800BBFFC4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EBE1BF8FE4800BBFFC4 /* ViewController.swift */; };
-		FF1A3EC21BF8FE4800BBFFC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF1A3EC01BF8FE4800BBFFC4 /* Main.storyboard */; };
+		FF0100021C01EE2F00F52191 /* RegressionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0100011C01EE2F00F52191 /* RegressionView.swift */; };
+		FF01FFD91C01EA0300F52191 /* ScalarArithmetic-bleed.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3F031BF9079500BBFFC4 /* ScalarArithmetic-bleed.swift */; };
+		FF01FFDA1C01EA0300F52191 /* opencv.mm in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EFF1BF9079500BBFFC4 /* opencv.mm */; };
+		FF01FFDB1C01EA0300F52191 /* math.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EFD1BF9079500BBFFC4 /* math.m */; };
+		FF01FFDC1C01EA0300F52191 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EBE1BF8FE4800BBFFC4 /* ViewController.swift */; };
+		FF01FFDD1C01EA0300F52191 /* m-image.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EED1BF9079500BBFFC4 /* m-image.swift */; };
+		FF01FFDE1C01EA0300F52191 /* m-helper-functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EEC1BF9079500BBFFC4 /* m-helper-functions.swift */; };
+		FF01FFDF1C01EA0300F52191 /* speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EE41BF9079500BBFFC4 /* speed.swift */; };
+		FF01FFE01C01EA0300F52191 /* numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EF91BF9079500BBFFC4 /* numbers.swift */; };
+		FF01FFE11C01EA0300F52191 /* simple-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EF81BF9079500BBFFC4 /* simple-math.swift */; };
+		FF01FFE21C01EA0300F52191 /* helper-functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EF41BF9079500BBFFC4 /* helper-functions.swift */; };
+		FF01FFE31C01EA0300F52191 /* io.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EE71BF9079500BBFFC4 /* io.swift */; };
+		FF01FFE41C01EA0300F52191 /* m-operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EF01BF9079500BBFFC4 /* m-operators.swift */; };
+		FF01FFE51C01EA0300F52191 /* m-complex-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EEB1BF9079500BBFFC4 /* m-complex-math.swift */; };
+		FF01FFE61C01EA0300F52191 /* tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3F041BF9079500BBFFC4 /* tests.swift */; };
+		FF01FFE71C01EA0300F52191 /* operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EF71BF9079500BBFFC4 /* operators.swift */; };
+		FF01FFE81C01EA0300F52191 /* ndarray.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EF61BF9079500BBFFC4 /* ndarray.swift */; };
+		FF01FFE91C01EA0300F52191 /* m-simple-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EF11BF9079500BBFFC4 /* m-simple-math.swift */; };
+		FF01FFEA1C01EA0300F52191 /* m-matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EEF1BF9079500BBFFC4 /* m-matrix.swift */; };
+		FF01FFEB1C01EA0300F52191 /* machine_learning.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EE91BF9079500BBFFC4 /* machine_learning.swift */; };
+		FF01FFEC1C01EA0300F52191 /* complex-math.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EF31BF9079500BBFFC4 /* complex-math.swift */; };
+		FF01FFED1C01EA0300F52191 /* initing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EF51BF9079500BBFFC4 /* initing.swift */; };
+		FF01FFEE1C01EA0300F52191 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EBC1BF8FE4800BBFFC4 /* AppDelegate.swift */; };
+		FF01FFEF1C01EA0300F52191 /* m-initing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EEE1BF9079500BBFFC4 /* m-initing.swift */; };
+		FF01FFF01C01EA0300F52191 /* conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EFB1BF9079500BBFFC4 /* conversion.swift */; };
+		FF01FFF11C01EA0300F52191 /* Regression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EE11BF9079500BBFFC4 /* Regression.swift */; };
+		FF01FFF21C01EA0300F52191 /* operations-and-indexing.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3F011BF9079500BBFFC4 /* operations-and-indexing.m */; };
+		FF01FFF31C01EA0300F52191 /* machine_learning.mm in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EFC1BF9079500BBFFC4 /* machine_learning.mm */; };
+		FF01FFF51C01EA0300F52191 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1A3EDE1BF9077E00BBFFC4 /* Accelerate.framework */; };
+		FF01FFF61C01EA0300F52191 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1A3EDC1BF9077400BBFFC4 /* opencv2.framework */; };
+		FF01FFF81C01EA0300F52191 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF1A3EC51BF8FE4800BBFFC4 /* LaunchScreen.storyboard */; };
+		FF01FFF91C01EA0300F52191 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF1A3EC31BF8FE4800BBFFC4 /* Assets.xcassets */; };
+		FF01FFFA1C01EA0300F52191 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF1A3EC01BF8FE4800BBFFC4 /* Main.storyboard */; };
+		FF01FFFB1C01EA0300F52191 /* imshow.py in Resources */ = {isa = PBXBuildFile; fileRef = FF1A3EE61BF9079500BBFFC4 /* imshow.py */; };
 		FF1A3EC41BF8FE4800BBFFC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF1A3EC31BF8FE4800BBFFC4 /* Assets.xcassets */; };
-		FF1A3EC71BF8FE4800BBFFC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF1A3EC51BF8FE4800BBFFC4 /* LaunchScreen.storyboard */; };
 		FF1A3ED21BF8FE4800BBFFC4 /* EERegressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3ED11BF8FE4800BBFFC4 /* EERegressionTests.swift */; };
 		FF1A3EDD1BF9077400BBFFC4 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1A3EDC1BF9077400BBFFC4 /* opencv2.framework */; };
 		FF1A3EDF1BF9077E00BBFFC4 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1A3EDE1BF9077E00BBFFC4 /* Accelerate.framework */; };
@@ -54,6 +84,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF0100001C01EA0300F52191 /* EERegression copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "EERegression copy-Info.plist"; path = "/Users/erkekin/Desktop/Homework/EERegression/EERegression copy-Info.plist"; sourceTree = "<absolute>"; };
+		FF0100011C01EE2F00F52191 /* RegressionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegressionView.swift; sourceTree = "<group>"; };
+		FF01FFFF1C01EA0300F52191 /* EERegressionExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EERegressionExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF1A3EB91BF8FE4800BBFFC4 /* EERegression.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EERegression.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF1A3EBC1BF8FE4800BBFFC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF1A3EBE1BF8FE4800BBFFC4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +130,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FF01FFF41C01EA0300F52191 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF01FFF51C01EA0300F52191 /* Accelerate.framework in Frameworks */,
+				FF01FFF61C01EA0300F52191 /* opencv2.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FF1A3EB61BF8FE4800BBFFC4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -122,6 +164,7 @@
 				FF1A3EBB1BF8FE4800BBFFC4 /* EERegression */,
 				FF1A3ED01BF8FE4800BBFFC4 /* EERegressionTests */,
 				FF1A3EBA1BF8FE4800BBFFC4 /* Products */,
+				FF0100001C01EA0300F52191 /* EERegression copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +173,7 @@
 			children = (
 				FF1A3EB91BF8FE4800BBFFC4 /* EERegression.app */,
 				FF1A3ECD1BF8FE4800BBFFC4 /* EERegressionTests.xctest */,
+				FF01FFFF1C01EA0300F52191 /* EERegressionExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,6 +185,7 @@
 				FF1A3EE01BF9079500BBFFC4 /* swix */,
 				FF1A3EBC1BF8FE4800BBFFC4 /* AppDelegate.swift */,
 				FF1A3EBE1BF8FE4800BBFFC4 /* ViewController.swift */,
+				FF0100011C01EE2F00F52191 /* RegressionView.swift */,
 				FF1A3EC01BF8FE4800BBFFC4 /* Main.storyboard */,
 				FF1A3EC31BF8FE4800BBFFC4 /* Assets.xcassets */,
 				FF1A3EC51BF8FE4800BBFFC4 /* LaunchScreen.storyboard */,
@@ -237,6 +282,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FF01FFD71C01EA0300F52191 /* EERegressionExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF01FFFC1C01EA0300F52191 /* Build configuration list for PBXNativeTarget "EERegressionExample" */;
+			buildPhases = (
+				FF01FFD81C01EA0300F52191 /* Sources */,
+				FF01FFF41C01EA0300F52191 /* Frameworks */,
+				FF01FFF71C01EA0300F52191 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EERegressionExample;
+			productName = EERegression;
+			productReference = FF01FFFF1C01EA0300F52191 /* EERegressionExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 		FF1A3EB81BF8FE4800BBFFC4 /* EERegression */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF1A3ED61BF8FE4800BBFFC4 /* Build configuration list for PBXNativeTarget "EERegression" */;
@@ -305,19 +367,29 @@
 			projectRoot = "";
 			targets = (
 				FF1A3EB81BF8FE4800BBFFC4 /* EERegression */,
+				FF01FFD71C01EA0300F52191 /* EERegressionExample */,
 				FF1A3ECC1BF8FE4800BBFFC4 /* EERegressionTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FF01FFF71C01EA0300F52191 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF01FFF81C01EA0300F52191 /* LaunchScreen.storyboard in Resources */,
+				FF01FFF91C01EA0300F52191 /* Assets.xcassets in Resources */,
+				FF01FFFA1C01EA0300F52191 /* Main.storyboard in Resources */,
+				FF01FFFB1C01EA0300F52191 /* imshow.py in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FF1A3EB71BF8FE4800BBFFC4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF1A3EC71BF8FE4800BBFFC4 /* LaunchScreen.storyboard in Resources */,
 				FF1A3EC41BF8FE4800BBFFC4 /* Assets.xcassets in Resources */,
-				FF1A3EC21BF8FE4800BBFFC4 /* Main.storyboard in Resources */,
 				FF1A3F091BF9079500BBFFC4 /* imshow.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,6 +404,41 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FF01FFD81C01EA0300F52191 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF01FFD91C01EA0300F52191 /* ScalarArithmetic-bleed.swift in Sources */,
+				FF01FFDA1C01EA0300F52191 /* opencv.mm in Sources */,
+				FF01FFDB1C01EA0300F52191 /* math.m in Sources */,
+				FF01FFDC1C01EA0300F52191 /* ViewController.swift in Sources */,
+				FF01FFDD1C01EA0300F52191 /* m-image.swift in Sources */,
+				FF01FFDE1C01EA0300F52191 /* m-helper-functions.swift in Sources */,
+				FF01FFDF1C01EA0300F52191 /* speed.swift in Sources */,
+				FF01FFE01C01EA0300F52191 /* numbers.swift in Sources */,
+				FF01FFE11C01EA0300F52191 /* simple-math.swift in Sources */,
+				FF01FFE21C01EA0300F52191 /* helper-functions.swift in Sources */,
+				FF01FFE31C01EA0300F52191 /* io.swift in Sources */,
+				FF01FFE41C01EA0300F52191 /* m-operators.swift in Sources */,
+				FF01FFE51C01EA0300F52191 /* m-complex-math.swift in Sources */,
+				FF01FFE61C01EA0300F52191 /* tests.swift in Sources */,
+				FF01FFE71C01EA0300F52191 /* operators.swift in Sources */,
+				FF01FFE81C01EA0300F52191 /* ndarray.swift in Sources */,
+				FF01FFE91C01EA0300F52191 /* m-simple-math.swift in Sources */,
+				FF01FFEA1C01EA0300F52191 /* m-matrix.swift in Sources */,
+				FF01FFEB1C01EA0300F52191 /* machine_learning.swift in Sources */,
+				FF01FFEC1C01EA0300F52191 /* complex-math.swift in Sources */,
+				FF01FFED1C01EA0300F52191 /* initing.swift in Sources */,
+				FF01FFEE1C01EA0300F52191 /* AppDelegate.swift in Sources */,
+				FF01FFEF1C01EA0300F52191 /* m-initing.swift in Sources */,
+				FF01FFF01C01EA0300F52191 /* conversion.swift in Sources */,
+				FF01FFF11C01EA0300F52191 /* Regression.swift in Sources */,
+				FF01FFF21C01EA0300F52191 /* operations-and-indexing.m in Sources */,
+				FF01FFF31C01EA0300F52191 /* machine_learning.mm in Sources */,
+				FF0100021C01EE2F00F52191 /* RegressionView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FF1A3EB51BF8FE4800BBFFC4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -339,7 +446,6 @@
 				FF1A3F201BF9079500BBFFC4 /* ScalarArithmetic-bleed.swift in Sources */,
 				FF1A3F1D1BF9079500BBFFC4 /* opencv.mm in Sources */,
 				FF1A3F1C1BF9079500BBFFC4 /* math.m in Sources */,
-				FF1A3EBF1BF8FE4800BBFFC4 /* ViewController.swift in Sources */,
 				FF1A3F0E1BF9079500BBFFC4 /* m-image.swift in Sources */,
 				FF1A3F0D1BF9079500BBFFC4 /* m-helper-functions.swift in Sources */,
 				FF1A3F081BF9079500BBFFC4 /* speed.swift in Sources */,
@@ -357,7 +463,6 @@
 				FF1A3F0B1BF9079500BBFFC4 /* machine_learning.swift in Sources */,
 				FF1A3F131BF9079500BBFFC4 /* complex-math.swift in Sources */,
 				FF1A3F151BF9079500BBFFC4 /* initing.swift in Sources */,
-				FF1A3EBD1BF8FE4800BBFFC4 /* AppDelegate.swift in Sources */,
 				FF1A3F0F1BF9079500BBFFC4 /* m-initing.swift in Sources */,
 				FF1A3F1A1BF9079500BBFFC4 /* conversion.swift in Sources */,
 				FF1A3F051BF9079500BBFFC4 /* Regression.swift in Sources */,
@@ -404,6 +509,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		FF01FFFD1C01EA0300F52191 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EERegression",
+					"$(PROJECT_DIR)/EERegression/swix/swix/objc",
+				);
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INFOPLIST_FILE = "EERegression copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ekin.EERegression;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EERegression/swix/swix/objc/swix-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		FF01FFFE1C01EA0300F52191 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EERegression",
+					"$(PROJECT_DIR)/EERegression/swix/swix/objc",
+				);
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INFOPLIST_FILE = "EERegression copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ekin.EERegression;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EERegression/swix/swix/objc/swix-Bridging-Header.h";
+			};
+			name = Release;
+		};
 		FF1A3ED41BF8FE4800BBFFC4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -552,6 +697,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FF01FFFC1C01EA0300F52191 /* Build configuration list for PBXNativeTarget "EERegressionExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF01FFFD1C01EA0300F52191 /* Debug */,
+				FF01FFFE1C01EA0300F52191 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FF1A3EB41BF8FE4800BBFFC4 /* Build configuration list for PBXProject "EERegression" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
