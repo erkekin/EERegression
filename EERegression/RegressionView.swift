@@ -21,7 +21,7 @@ class node {
 
 class RegressionView: UIView {
     
-    var nodes:NSMutableArray = []
+    var nodes:[node] = []
     
     var modelLine:CAShapeLayer?
     let gridWidth: CGFloat = 0.5
@@ -54,8 +54,7 @@ class RegressionView: UIView {
         modelLine?.removeFromSuperlayer()
         for onelayer in nodes{
             
-            let lay = onelayer as! node
-            lay.layer.removeFromSuperlayer()
+            onelayer.layer.removeFromSuperlayer()
             
         }
         self.nodes = []
@@ -102,7 +101,7 @@ class RegressionView: UIView {
         
         let tapPositionOneFingerTap = sender.locationInView(self)
         let nodea = node(point: tapPositionOneFingerTap, layer: setUpRWPath(tapPositionOneFingerTap))
-        nodes.addObject(nodea)
+        nodes.append(nodea)
         
         layer.addSublayer(nodea.layer)
         
@@ -119,15 +118,15 @@ class RegressionView: UIView {
         
         var X = matrix(columns: 1, rows: nodes.count)
         X.flat.grid = nodes.map({ (nodea) -> Double in
-            let a = nodea as! node
-            return Double(a.point.x)
+     
+            return Double(nodea.point.x)
         })
         
         var Y = matrix(columns: 1, rows: nodes.count)
         
         Y.flat.grid = nodes.map({ (nodea) -> Double in
-            let a = nodea as! node
-            return Double(a.point.y)
+     
+            return Double(nodea.point.y)
         })
         
         let reg = Regression(X: X, Y: Y, degree: 1)
