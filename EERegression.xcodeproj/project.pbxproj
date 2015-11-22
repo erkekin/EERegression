@@ -15,7 +15,7 @@
 		FF1A3ED21BF8FE4800BBFFC4 /* EERegressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3ED11BF8FE4800BBFFC4 /* EERegressionTests.swift */; };
 		FF1A3EDD1BF9077400BBFFC4 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1A3EDC1BF9077400BBFFC4 /* opencv2.framework */; };
 		FF1A3EDF1BF9077E00BBFFC4 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1A3EDE1BF9077E00BBFFC4 /* Accelerate.framework */; };
-		FF1A3F051BF9079500BBFFC4 /* LinearRegression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EE11BF9079500BBFFC4 /* LinearRegression.swift */; };
+		FF1A3F051BF9079500BBFFC4 /* Regression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EE11BF9079500BBFFC4 /* Regression.swift */; };
 		FF1A3F081BF9079500BBFFC4 /* speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EE41BF9079500BBFFC4 /* speed.swift */; };
 		FF1A3F091BF9079500BBFFC4 /* imshow.py in Resources */ = {isa = PBXBuildFile; fileRef = FF1A3EE61BF9079500BBFFC4 /* imshow.py */; };
 		FF1A3F0A1BF9079500BBFFC4 /* io.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3EE71BF9079500BBFFC4 /* io.swift */; };
@@ -41,7 +41,6 @@
 		FF1A3F1F1BF9079500BBFFC4 /* operations-and-indexing.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3F011BF9079500BBFFC4 /* operations-and-indexing.m */; };
 		FF1A3F201BF9079500BBFFC4 /* ScalarArithmetic-bleed.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3F031BF9079500BBFFC4 /* ScalarArithmetic-bleed.swift */; };
 		FF1A3F211BF9079500BBFFC4 /* tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A3F041BF9079500BBFFC4 /* tests.swift */; };
-		FFAD47561BFF6BB200D84D89 /* QuadraticRegression.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAD47551BFF6BB200D84D89 /* QuadraticRegression.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +66,7 @@
 		FF1A3ED31BF8FE4800BBFFC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF1A3EDC1BF9077400BBFFC4 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		FF1A3EDE1BF9077E00BBFFC4 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		FF1A3EE11BF9079500BBFFC4 /* LinearRegression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinearRegression.swift; path = swix/LinearRegression.swift; sourceTree = "<group>"; };
+		FF1A3EE11BF9079500BBFFC4 /* Regression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Regression.swift; path = swix/Regression.swift; sourceTree = "<group>"; };
 		FF1A3EE41BF9079500BBFFC4 /* speed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = speed.swift; sourceTree = "<group>"; };
 		FF1A3EE61BF9079500BBFFC4 /* imshow.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = imshow.py; sourceTree = "<group>"; };
 		FF1A3EE71BF9079500BBFFC4 /* io.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = io.swift; sourceTree = "<group>"; };
@@ -95,7 +94,6 @@
 		FF1A3F031BF9079500BBFFC4 /* ScalarArithmetic-bleed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ScalarArithmetic-bleed.swift"; sourceTree = "<group>"; };
 		FF1A3F041BF9079500BBFFC4 /* tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tests.swift; sourceTree = "<group>"; };
 		FF667FFF1BFF5B8B0007D401 /* swix-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "swix-Bridging-Header.h"; sourceTree = "<group>"; };
-		FFAD47551BFF6BB200D84D89 /* QuadraticRegression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuadraticRegression.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,8 +137,7 @@
 		FF1A3EBB1BF8FE4800BBFFC4 /* EERegression */ = {
 			isa = PBXGroup;
 			children = (
-				FFAD47551BFF6BB200D84D89 /* QuadraticRegression.swift */,
-				FF1A3EE11BF9079500BBFFC4 /* LinearRegression.swift */,
+				FF1A3EE11BF9079500BBFFC4 /* Regression.swift */,
 				FF1A3EE01BF9079500BBFFC4 /* swix */,
 				FF1A3EBC1BF8FE4800BBFFC4 /* AppDelegate.swift */,
 				FF1A3EBE1BF8FE4800BBFFC4 /* ViewController.swift */,
@@ -342,7 +339,6 @@
 				FF1A3F201BF9079500BBFFC4 /* ScalarArithmetic-bleed.swift in Sources */,
 				FF1A3F1D1BF9079500BBFFC4 /* opencv.mm in Sources */,
 				FF1A3F1C1BF9079500BBFFC4 /* math.m in Sources */,
-				FFAD47561BFF6BB200D84D89 /* QuadraticRegression.swift in Sources */,
 				FF1A3EBF1BF8FE4800BBFFC4 /* ViewController.swift in Sources */,
 				FF1A3F0E1BF9079500BBFFC4 /* m-image.swift in Sources */,
 				FF1A3F0D1BF9079500BBFFC4 /* m-helper-functions.swift in Sources */,
@@ -364,7 +360,7 @@
 				FF1A3EBD1BF8FE4800BBFFC4 /* AppDelegate.swift in Sources */,
 				FF1A3F0F1BF9079500BBFFC4 /* m-initing.swift in Sources */,
 				FF1A3F1A1BF9079500BBFFC4 /* conversion.swift in Sources */,
-				FF1A3F051BF9079500BBFFC4 /* LinearRegression.swift in Sources */,
+				FF1A3F051BF9079500BBFFC4 /* Regression.swift in Sources */,
 				FF1A3F1F1BF9079500BBFFC4 /* operations-and-indexing.m in Sources */,
 				FF1A3F1B1BF9079500BBFFC4 /* machine_learning.mm in Sources */,
 			);

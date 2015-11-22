@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         X.flat.grid = x
         
         print( solve(X, b: A.flat))
-        print(B *! A)
+       // print(B *! A)
         //        let x:[Double] = [4,4,10,8]
         
         

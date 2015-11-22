@@ -1,5 +1,5 @@
 //
-//  LinearRegression.swift
+//  Regression.swift
 //  swix
 //
 //  Created by Erk EKİN on 15/07/15.
@@ -22,8 +22,9 @@ extension matrix{
 
 class Regression {
     
-    var betalar:ndarray?
+    var betalar:ndarray = ndarray(n: 0)
     var degree:Int = 1
+    // var model:()->()?
     
     init(X:matrix, Y:matrix, degree:Int){
         
@@ -33,7 +34,7 @@ class Regression {
     }
     
     private func findBetas(X:matrix, Y:matrix, degree:Int) -> ndarray {
-       
+        
         assert(degree>0, "Degree should be higher than zero")
         assert(X.rows == Y.rows, "Sizes of input arguments do not match")
         assert(Y.columns == 1, "Columns of Y should be 1")
@@ -64,10 +65,25 @@ class Regression {
         onesVector.flat = ones(newX.rows)
         
         let onedXNew = onesVector.cbind(newX)
-
-        let betas = solve(transpose(onedXNew)*!onedXNew, b: (transpose(onedXNew)*!Y).flat)        //let betas = solve(X'X, X'Y')
+        
+        let betas = solve(transpose(onedXNew)*!onedXNew, b: (transpose(onedXNew)*!Y).flat) //let betas = solve(X'X, X'Y')
         
         return betas
+        
+    }
+    
+    func predict(X:matrix) -> matrix{
+        
+        if degree > 1{
+            
+            // f(x) = w0 + w1 * x0^2 + .... + (wn-1) * xn^(n-1)
+            
+        }
+        var ß = matrix(columns: 1, rows: betalar.count)
+        ß.flat = betalar
+        print(ß)
+        print(X)
+        return X *! ß
         
     }
     
