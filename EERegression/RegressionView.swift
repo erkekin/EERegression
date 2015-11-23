@@ -56,7 +56,6 @@ class RegressionView: UIView {
         let tapCount = sender.numberOfTouches()
         
         reg = regressionForValues(tapCount > 0 ? tapCount : 1)
-        reg = regressionForValues(3)
         
         modelLine = drawModelWithReg(reg)
         
