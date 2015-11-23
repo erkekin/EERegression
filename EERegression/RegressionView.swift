@@ -22,7 +22,9 @@ class Node {
 
 class RegressionView: UIView {
     
+    var regressionDegree = 1
     var nodes:[Node] = []
+    
     var reg = Regression()
     var modelLine:CAShapeLayer?
     @IBOutlet weak var label:UILabel!
@@ -46,40 +48,49 @@ class RegressionView: UIView {
         
     }
     
-    @IBAction func tapped(sender: UITapGestureRecognizer) {
+    @IBAction func changeDegree(sender: UIStepper) {
         
-        let tapCount = sender.numberOfTouches()
+        regressionDegree = Int(sender.value)
+        label.text = "\(regressionDegree). degree"
+        if nodes.count == 0 {return}
+        self.reg = self.regressionForValues(regressionDegree)
+        self.drawModelWithReg(self.reg)
+        
+    }
+    
+    @IBAction func tapped(sender: UITapGestureRecognizer) {
         
         switch sender.state{
             
         case .Began:
             
-            label.text = "\(tapCount). degree"
+            label.text = "\(regressionDegree). degree"
             
             break
         case .Ended:
-              label.text = "Draw, long press to delete all"
+            label.text = "Draw with one or multiple fingers, long press to delete all"
+            
+            break
+        case .Cancelled:
+            label.text = "Draw with one or multiple fingers, long press to delete all"
+            
+            break
+        case .Failed:
+            label.text = "Draw with one or multiple fingers, long press to delete all"
             
             break
         case .Changed:
             
             let tapPositionOneFingerTap = sender.locationInView(self)
-            let node = Node(point: tapPositionOneFingerTap, layer: drawPoint(tapPositionOneFingerTap, color: UIColor.redColor().CGColor))
-            nodes.append(node)
+            let node = Node(point: tapPositionOneFingerTap, layer: self.drawPoint(tapPositionOneFingerTap, color: UIColor.redColor().CGColor))
+            self.nodes.append(node)
             
-            layer.addSublayer(node.layer)
+            self.layer.addSublayer(node.layer)
             
-            
-            reg = regressionForValues(tapCount)
-            
-            modelLine = drawModelWithReg(reg)
-            
-            layer.addSublayer(modelLine!)
-            
+            self.reg = self.regressionForValues(regressionDegree)
+            self.drawModelWithReg(self.reg)
             
             break
-            
-            
             
         default:
             
@@ -120,14 +131,16 @@ class RegressionView: UIView {
     }
     // MARK: Drawing
     
-    func drawModelWithReg(reg: Regression) -> CAShapeLayer{
+    func drawModelWithReg(reg: Regression){
         
         modelLine?.removeFromSuperlayer()
+        
         if reg.degree == 1 {
-            return drawLinearModel(reg)
+            modelLine = drawLinearModel(reg)
         }else{
-            return drawQuadraticModel(reg)
+            modelLine = drawQuadraticModel(reg)
         }
+        self.layer.addSublayer(self.modelLine!)
     }
     
     func drawQuadraticModel(withReg:Regression) -> CAShapeLayer
