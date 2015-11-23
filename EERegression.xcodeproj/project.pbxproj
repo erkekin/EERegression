@@ -532,6 +532,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ekin.EERegression;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "EERegression/swix/swix/objc/swix-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -554,6 +555,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ekin.EERegression;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "EERegression/swix/swix/objc/swix-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -657,6 +659,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ekin.EERegression;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "EERegression/swix/swix/objc/swix-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -679,6 +682,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ekin.EERegression;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "EERegression/swix/swix/objc/swix-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
