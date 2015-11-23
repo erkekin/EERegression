@@ -33,6 +33,8 @@ class Regression {
         
     }
     
+    init(){}
+    
     private func findBetas(X:matrix, Y:matrix, degree:Int) -> ndarray {
         
         assert(degree>0, "Degree should be higher than zero")

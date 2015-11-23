@@ -17,16 +17,7 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func tapped(sender: UITapGestureRecognizer) {
-        
-        let tapPositionOneFingerTap = sender.locationInView(chartView)
-          print("y: \(chartView.frame.height - tapPositionOneFingerTap.y)")
-        print("X: \(tapPositionOneFingerTap.x) - Y: \(tapPositionOneFingerTap.y)")
-        
-//        NSLog(@"one tap detec");
-        //
-    }
-       
+         
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -12,6 +12,8 @@ class node {
     
     var point:CGPoint!
     var layer:CAShapeLayer!
+    
+    
     init(point:CGPoint, layer:CAShapeLayer){
         self.point = point
         self.layer = layer
@@ -22,8 +24,9 @@ class node {
 class RegressionView: UIView {
     
     var nodes:[node] = []
-    
+    var reg = Regression()
     var modelLine:CAShapeLayer?
+    
     let gridWidth: CGFloat = 0.5
     var columns: Int = 25
     
@@ -44,13 +47,17 @@ class RegressionView: UIView {
         self.backgroundColor = UIColor.whiteColor()
         let tap = UITapGestureRecognizer(target: self, action: "tapped:")
         self.addGestureRecognizer(tap)
+        
+        let pan = UIPanGestureRecognizer(target: self, action: "tapped:")
+        self.addGestureRecognizer(pan)
+        
         let longTap = UILongPressGestureRecognizer(target: self, action: "removeAll")
         self.addGestureRecognizer(longTap)
     }
     
     func removeAll(){
         
-  
+        
         modelLine?.removeFromSuperlayer()
         for onelayer in nodes{
             
@@ -58,6 +65,16 @@ class RegressionView: UIView {
             
         }
         self.nodes = []
+        
+    }
+    
+    func findQuadraticPoints(){
+        
+        for i in 0..<1000{
+            
+            let value = Double(i) / 10
+            
+        }
         
     }
     
@@ -104,32 +121,20 @@ class RegressionView: UIView {
         nodes.append(nodea)
         
         layer.addSublayer(nodea.layer)
+        let tapCount = sender.numberOfTouches()
+        print(tapCount)
         
-        let axialPoints = regressionWithPoint()
+        reg = regressionForValues(tapCount > 0 ? tapCount : 1)
         
         modelLine?.removeFromSuperlayer()
-        modelLine = lineBetweenPoints(axialPoints.x, p2: axialPoints.y)
+        modelLine = drawLinearModel()
         
         layer.addSublayer(modelLine!)
         
     }
     
-    func regressionWithPoint() -> (x:CGPoint, y:CGPoint){
-        
-        var X = matrix(columns: 1, rows: nodes.count)
-        X.flat.grid = nodes.map({ (nodea) -> Double in
-     
-            return Double(nodea.point.x)
-        })
-        
-        var Y = matrix(columns: 1, rows: nodes.count)
-        
-        Y.flat.grid = nodes.map({ (nodea) -> Double in
-     
-            return Double(nodea.point.y)
-        })
-        
-        let reg = Regression(X: X, Y: Y, degree: 1)
+    func drawLinearModel() -> CAShapeLayer
+    {
         
         let width = Double(frame.width)
         var axeStartX = matrix(columns: 1, rows: 1)
@@ -140,7 +145,29 @@ class RegressionView: UIView {
         axeEndX.flat.grid = [width]
         let axeEndY = reg.predict(axeEndX).flat.grid.first
         
-        return (CGPointMake(0, CGFloat(axeStartY!)),CGPointMake(CGFloat(width), CGFloat(axeEndY!)))
+        let axialPoints = (x: CGPointMake(0, CGFloat(axeStartY!)),y: CGPointMake(CGFloat(width), CGFloat(axeEndY!)))
+        
+        return lineBetweenPoints(axialPoints.x, p2: axialPoints.y)
+
+    }
+    
+    func regressionForValues(degree: Int) -> Regression{
+        
+        var X = matrix(columns: 1, rows: nodes.count)
+        X.flat.grid = nodes.map({ (nodea) -> Double in
+            
+            return Double(nodea.point.x)
+        })
+        
+        var Y = matrix(columns: 1, rows: nodes.count)
+        
+        Y.flat.grid = nodes.map({ (nodea) -> Double in
+            
+            return Double(nodea.point.y)
+        })
+        
+        return Regression(X: X, Y: Y, degree: degree)
+        
     }
     
     func lineBetweenPoints(p1:CGPoint, p2: CGPoint) -> CAShapeLayer{
@@ -164,8 +191,9 @@ class RegressionView: UIView {
         let layer = CAShapeLayer()
         layer.path = UIBezierPath(roundedRect: CGRect(x: point.x - 2.5, y: point.y - 2.5, width: 5, height: 5), cornerRadius: 2.5).CGPath
         layer.fillColor = UIColor.redColor().CGColor
-        return layer    }
-    
+        return layer
+        
+    }
     
 }
 //
