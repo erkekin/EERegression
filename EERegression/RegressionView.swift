@@ -25,7 +25,7 @@ class RegressionView: UIView {
     var nodes:[Node] = []
     var reg = Regression()
     var modelLine:CAShapeLayer?
-    
+    @IBOutlet weak var label:UILabel!
     let gridWidth: CGFloat = 0.5
     var columns: Int = 25
     
@@ -48,18 +48,43 @@ class RegressionView: UIView {
     
     @IBAction func tapped(sender: UITapGestureRecognizer) {
         
-        let tapPositionOneFingerTap = sender.locationInView(self)
-        let node = Node(point: tapPositionOneFingerTap, layer: drawPoint(tapPositionOneFingerTap, color: UIColor.redColor().CGColor))
-        nodes.append(node)
-        
-        layer.addSublayer(node.layer)
         let tapCount = sender.numberOfTouches()
         
-        reg = regressionForValues(tapCount > 0 ? tapCount : 1)
-        
-        modelLine = drawModelWithReg(reg)
-        
-        layer.addSublayer(modelLine!)
+        switch sender.state{
+            
+        case .Began:
+            
+            label.text = "\(tapCount). degree"
+            
+            break
+        case .Ended:
+              label.text = "Draw, long press to delete all"
+            
+            break
+        case .Changed:
+            
+            let tapPositionOneFingerTap = sender.locationInView(self)
+            let node = Node(point: tapPositionOneFingerTap, layer: drawPoint(tapPositionOneFingerTap, color: UIColor.redColor().CGColor))
+            nodes.append(node)
+            
+            layer.addSublayer(node.layer)
+            
+            
+            reg = regressionForValues(tapCount)
+            
+            modelLine = drawModelWithReg(reg)
+            
+            layer.addSublayer(modelLine!)
+            
+            
+            break
+            
+            
+            
+        default:
+            
+            break
+        }
         
     }
     

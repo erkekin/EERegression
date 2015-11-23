@@ -19,9 +19,29 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KBH-48-84E" customClass="RegressionView" customModule="EERegressionExample" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Draw, long press to delete all" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMw-Zl-kAs">
+                                        <rect key="frame" x="19" y="20" width="581" height="21"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="a6o-QL-XfQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.60744922560000003" green="1" blue="0.3215827698" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="DMw-Zl-kAs" secondAttribute="trailing" id="a2X-h4-uDI"/>
+                                    <constraint firstItem="DMw-Zl-kAs" firstAttribute="top" secondItem="KBH-48-84E" secondAttribute="top" constant="20" id="q0J-pV-2WP"/>
+                                    <constraint firstItem="DMw-Zl-kAs" firstAttribute="leading" secondItem="KBH-48-84E" secondAttribute="leading" constant="19" id="xvP-Uz-Ozd"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="label" destination="DMw-Zl-kAs" id="5Lh-q1-Noo"/>
+                                </connections>
                             </view>
                         </subviews>
                         <animations/>
@@ -40,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1172" y="257"/>
+            <point key="canvasLocation" x="1172" y="273"/>
         </scene>
     </scenes>
 </document>
