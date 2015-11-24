@@ -1,5 +1,8 @@
 # EERegression
 General purpose multivaritate and quadratic Regression library for Swift 2.1
+
+
+![regression gif](https://github.com/erkekin/EERegression/blob/master/EERegression/reg.gif?raw=true)
 ### Usage 
 ```swift
 // X is one or multi column matrix, Y is a vector (o column matrix), degree is polynomial order. (1 for linear regression)
