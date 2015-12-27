@@ -18,6 +18,10 @@ class Node {
         self.layer = layer
         
     }
+    init(point:CGPoint){
+        self.point = point
+        
+    }
 }
 
 class RegressionView: UIView {
@@ -43,7 +47,7 @@ class RegressionView: UIView {
         let pan = UIPanGestureRecognizer(target: self, action: "tapped:")
         self.addGestureRecognizer(pan)
         
-        let longTap = UILongPressGestureRecognizer(target: self, action: "removeAll")
+        let longTap = UILongPressGestureRecognizer(target: self, action: "removeAllNodes")
         self.addGestureRecognizer(longTap)
         
     }
@@ -69,7 +73,12 @@ class RegressionView: UIView {
             break
         case .Ended:
             label.text = "Draw with one or multiple fingers, long press to delete all"
+
+            //   drawNodes()
+            self.reg = self.regressionForValues(regressionDegree)
+            self.drawModelWithReg(self.reg)
             
+            print(nodes.count)
             break
         case .Cancelled:
             label.text = "Draw with one or multiple fingers, long press to delete all"
@@ -82,13 +91,10 @@ class RegressionView: UIView {
         case .Changed:
             
             let tapPositionOneFingerTap = sender.locationInView(self)
-            let node = Node(point: tapPositionOneFingerTap, layer: self.drawPoint(tapPositionOneFingerTap, color: UIColor.redColor().CGColor))
+            
+            // let node = Node(point: tapPositionOneFingerTap, layer: self.drawPoint(tapPositionOneFingerTap, color: UIColor.redColor().CGColor))
+            let node = Node(point: tapPositionOneFingerTap)
             self.nodes.append(node)
-            
-            self.layer.addSublayer(node.layer)
-            
-            self.reg = self.regressionForValues(regressionDegree)
-            self.drawModelWithReg(self.reg)
             
             break
             
@@ -99,14 +105,24 @@ class RegressionView: UIView {
         
     }
     
-    func removeAll(){
+    func drawNodes(){
         
+        clearNodes()
+        for node in nodes{layer.addSublayer(node.layer)}
+    }
+    
+    func clearNodes(){
         modelLine?.removeFromSuperlayer()
         for onelayer in nodes{
             
             onelayer.layer.removeFromSuperlayer()
             
         }
+    
+    }
+    func removeAllNodes(){
+        
+        clearNodes()
         self.nodes = []
         
     }
