@@ -1,5 +1,5 @@
 # EERegression
-General purpose multivariate linear and quadratic Regression library for Swift 2.1.
+General purpose multivariate linear and quadratic Regression library for Swift.
 
 
 ![regression gif](https://github.com/erkekin/EERegression/blob/master/EERegression/reg.gif?raw=true)
